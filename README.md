@@ -1,6 +1,6 @@
 # Void Trace
 
-Void Trace is an advanced OSINT and reconnaissance tool built in Python. It is a continuation and evolution of the [DevilEye](https://github.com/kbzx3/devileye) project, designed to provide a more user-friendly interface, additional features, and regular updates for tracking emails, phone numbers, and more.
+Void Trace is an advanced OSINT and reconnaissance tool built in Python. It is a continuation and evolution of the [DevilEye](https://github.com/kbzx3/devileye-osint-in-developement-will-receive-updates-) project, designed to provide a more user-friendly interface, additional features, and regular updates for tracking emails, phone numbers, and more.
 
 ---
 
