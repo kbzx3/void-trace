@@ -5,13 +5,14 @@ from utils.phonelookup import numlookup
 from utils.ipping import ipping
 from utils.ipscanner import ipscan
 from utils.emaillookup import emaillookup
-
+from utils.unamedorksearch import unamedorksearch
+from utils.emaildorksearch import emaildorksearch
 class Color:
     RESET = "\033[0m"
     RED = "\033[91m"
     WHITE = "\033[97m"
 
-choices = ['1', '2', '3', '4','5']
+choices = ['1', '2', '3', '4','5','6','7']
 
 white = Color.WHITE
 red = Color.RED
@@ -53,7 +54,7 @@ ascii_art=('''
 def main():
 
     print(f"{red }{ascii_art}{red}")
-    print(f"{white}1. User lookup\n2. Phone lookup\n3. IP ping\n4. IP scanner\n5. Email lookup{red}")
+    print(f"{white}1. User lookup\n2. Phone lookup\n3. IP ping\n4. IP scanner\n5. Email lookup\n6. Username dorksearch\n7. Email dorksearch{red}")
 
     while True:
         uchoice = input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter function ({choices} or 'q' to quit) -> {red}").strip().lower()
@@ -68,6 +69,7 @@ def main():
         elif uchoice == '3': ipping()
         elif uchoice == '4': ipscan()
         elif uchoice == '5': emaillookup()
-
+        elif uchoice == "6": unamedorksearch()
+        elif uchoice == "7": emaildorksearch()
 if __name__ == '__main__':
     main()
