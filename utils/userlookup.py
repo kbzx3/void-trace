@@ -92,7 +92,7 @@ async def check_platform_usernames(session, platform, username, limit=None):
     return found
 
 # Main async username finder
-async def username_finder():
+async def userlookup():
     Slow("=== Username Checker ===")
     username = input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter username -> {white}").strip()
     print(f"{BEFORE}{current_time_hour()}{AFTER} {WAIT} Checking username and similar ones per platform...{red}")

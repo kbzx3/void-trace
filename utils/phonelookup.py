@@ -66,7 +66,6 @@ def lookupnum(number):
     except NumberParseException as e:
         return {"error": str(e)}
 
-# -------- CLI Table --------
 def print_cli_table(number_info):
     if "error" in number_info:
         print(f"{BEFORE}{current_time_hour()}{AFTER} {ERROR} {number_info['error']}")
@@ -75,7 +74,7 @@ def print_cli_table(number_info):
         print("\nPhone Number Info\n" + "="*40)
         print(tabulate(table, headers=["Property", "Value"], tablefmt="grid"))
 
-def numlookup():
+def phonelookup():
 
     Slow(banner)
 

@@ -119,7 +119,7 @@ def ip_port(ip):
         futures = [executor.submit(scan_port, ip, port) for port in port_list]
         concurrent.futures.wait(futures)
 
-def ipscan():
+def ipscanner():
     Slow(banner)
     ip = input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} IP -> {color.RESET}")
     print(f"{BEFORE}{current_time_hour()}{AFTER} {WAIT} Gathering Information...{color.RESET}")

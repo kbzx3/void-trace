@@ -6,12 +6,13 @@ Void Trace is an advanced OSINT and reconnaissance tool built in Python. It is a
 
 ## Features
 
-* **Email Tracking** – Quickly gather information about emails and their associated accounts.
-* **Phone Lookup** – Parse and validate phone numbers using the `phonenumbers` library.
-* **Website Scraping** – Collect public information from websites with `BeautifulSoup`.
-* **Terminal Enhancements** – Colorful outputs with `colorama`, ASCII banners with `pyfiglet`, and colored text with `termcolor`.
-* **Cross-Platform** – Works on Windows, macOS, and Linux with Python 3.x.
-* New features will be added soon
+- **Email Tracking** – Quickly gather information about emails and their associated accounts.
+- **Phone Lookup** – Parse and validate phone numbers using the `phonenumbers` library.
+- **Website Scraping** – Collect public information from websites with `BeautifulSoup`.
+- **Terminal Enhancements** – Colorful outputs with `colorama`, ASCII banners with `pyfiglet`, and colored text with `termcolor`.
+- **Cross-Platform** – Works on Windows, macOS, and Linux with Python 3.x.
+- New features will be added soon
+
 ---
 
 ## Installation
@@ -53,14 +54,18 @@ The tool will display a terminal interface with options to perform email trackin
 
 ---
 
+## Addon Development
+
+Please ensure the name of the main function is the same as the file, for example is the name of thefunction that runs the module is reversesearch then file must be named reversesearch.py .
+
 ## Relation to DevilEye
 
 Void Trace is a **continuation of the DevilEye project**. It retains the core OSINT capabilities of DevilEye while adding:
 
-* Better terminal visuals
-* Phone number parsing functionality
-* Regular updates and bug fixes
-* Improved modular code structure
+- Better terminal visuals
+- Phone number parsing functionality
+- Regular updates and bug fixes
+- Improved modular code structure
 
 This ensures users can continue leveraging the power of DevilEye with enhanced features and stability.
 
@@ -70,10 +75,10 @@ This ensures users can continue leveraging the power of DevilEye with enhanced f
 
 Void Trace will receive **regular updates** to include:
 
-* New OSINT modules and tools
-* Bug fixes and performance improvements
-* Compatibility updates with Python versions
-* Security patches for safe usage
+- New OSINT modules and tools
+- Bug fixes and performance improvements
+- Compatibility updates with Python versions
+- Security patches for safe usage
 
 Stay tuned by following the repository or checking the [Releases](https://github.com/kbzx3/void-trace/releases) section.
 
