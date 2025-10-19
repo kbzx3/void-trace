@@ -98,7 +98,7 @@ Please ensure all code follows Python 3 conventions and maintains compatibility 
 
 ## License
 
-Void Trace inherits its license from DevilEye and is **open source under the MIT License**. You are free to use, modify, and distribute it responsibly.
+Void Trace inherits its license from DevilEye and is **open source under the GPL 3.0 License**. You are free to use, modify, and distribute it responsibly.
 
 ---
 
