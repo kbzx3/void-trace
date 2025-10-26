@@ -22,27 +22,22 @@ def Slow(text, delay=0.03):
         time.sleep(delay)
     print()
 
-# Generate similar usernames
 def generate_similar_usernames(username, limit=None):
     alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789-_'
     similar = set()
-    # Replace each character
     for i in range(len(username)):
         for c in alphabet:
             if username[i] != c:
                 similar.add(username[:i] + c + username[i+1:])
-    # Insert characters
     for i in range(len(username) + 1):
         for c in alphabet:
             similar.add(username[:i] + c + username[i:])
-    # Delete characters
     for i in range(len(username)):
         similar.add(username[:i] + username[i+1:])
     if limit:
         return list(similar)[:limit]
     return list(similar)
 
-# Check a single URL
 async def check_site(session, site, url, found):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
@@ -79,7 +74,6 @@ async def check_platform_usernames(session, platform, username, limit=None):
     }
     found = []
 
-    # Decide limit per platform
     if platform == "GitHub":
         usernames = [username] + generate_similar_usernames(username, limit=10)
     elif platform == "Facebook":

@@ -13,13 +13,15 @@ for index, module in enumerate(modules, start=1):
     module.module_number = index
 
 modnum = len(modules)
-
+def cls():
+    if os.name == "nt": os.system('cls')
+    else: os.system('clear')
 class Color:
     RESET = "\033[0m"
     RED = "\033[91m"
     WHITE = "\033[97m"
 
-choices = [str(i) for i in range(1, modnum + 1)]
+choices = f"1-{modnum}"
 
 white = Color.WHITE
 red = Color.RED
@@ -56,12 +58,15 @@ ascii_art = '''
 '''
 
 async def main():
-    print(f"{red}{ascii_art}{red}")
-    for m in modules:
-        print(f"{white}{m.module_number}. {m.__name__.split('.')[-1]}{red}")
+
+
 
     while True:
+        print(f"{red}{ascii_art}{red}")
+        for m in modules:
+            print(f"{white}{m.module_number}. {m.__name__.split('.')[-1]}{red}")
         uchoice = input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter function ({choices} or 'q' to quit) -> {red}").strip().lower()
+        cls()
         if uchoice == 'q':
             print(f"{BEFORE}{current_time_hour()}{AFTER} {ADD} Exiting program.")
             break
@@ -86,8 +91,10 @@ async def main():
                     sig = inspect.signature(attr)
                     if len(sig.parameters) == 0:
                         if asyncio.iscoroutinefunction(attr):
+                            cls()
                             await attr()
                         else:
+                            cls()
                             attr()
                 except (ValueError, TypeError):
                     continue
