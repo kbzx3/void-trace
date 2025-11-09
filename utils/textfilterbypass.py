@@ -55,9 +55,14 @@ char = {
     'y': 'у',  
 }
 def replacechar(text: str) -> str:
-    """Replace letters with visually identical Unicode versions."""
+
     return ''.join(char.get(ch, ch) for ch in text)
 
 def textfilterbypass():
     msg= input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter message to bypass filters -> {red}")
-    print(f"{BEFORE}{current_time_hour()}{AFTER} {ADD} {replacechar(msg)}")
+    msglen=len(msg)
+    msglen_=msglen+15
+    print(f"\n{red}╔{'═'*msglen_}╗{Color.RESET}")
+    print(f"║{BEFORE}{current_time_hour()}{AFTER} {ADD} Copy and paste it:║ {red}")
+    print(f"║{BEFORE}{current_time_hour()}{AFTER} {ADD} {replacechar(msg)}║")
+    print(f"{red}╚{'═'*msglen_}╝{Color.RESET}\n")

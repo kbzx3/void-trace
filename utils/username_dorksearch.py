@@ -27,7 +27,7 @@ def Slow(text, delay=0.03):
 
 banner = "=== Username Dork Search ==="
 
-def unamedorksearch():
+def username_dorksearch():
     Slow(banner)
     username = input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter username (no spaces) -> {white}").strip().lower()
     print(reset, end="")

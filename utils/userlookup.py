@@ -23,8 +23,19 @@ def Slow(text, delay=0.03):
     print()
 
 def generate_similar_usernames(username, limit=None):
+    username = username.lower()
     alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789-_'
     similar = set()
+
+    # Base tweaks
+    similar.update([
+        f"{username}2",
+        f"{username}_"
+    ])
+    if len(username) > 2:
+        similar.add(f"{username[:2]}_{username[2:]}")
+
+    # Character substitutions, insertions, deletions
     for i in range(len(username)):
         for c in alphabet:
             if username[i] != c:
@@ -34,9 +45,11 @@ def generate_similar_usernames(username, limit=None):
             similar.add(username[:i] + c + username[i:])
     for i in range(len(username)):
         similar.add(username[:i] + username[i+1:])
+
     if limit:
         return list(similar)[:limit]
     return list(similar)
+
 
 async def check_site(session, site, url, found):
     headers = {

@@ -22,7 +22,7 @@ def current_time_hour():
     return datetime.now().strftime("%H:%M:%S")
 
 def Slow(text, delay=0.05):
-    # simple slow print effect
+
     for c in text:
         print(c, end="", flush=True)
         time.sleep(delay)

@@ -35,7 +35,7 @@ INPUT = "[?]"
 def current_time_hour():
     return datetime.now().strftime("%H:%M:%S")
 
-def Slow(text, delay=0.05):
+def Slow(text, delay=0.01):
     for c in text:
         print(c, end="", flush=True)
         time.sleep(delay)
@@ -63,8 +63,10 @@ async def main():
 
     while True:
         print(f"{red}{ascii_art}{red}")
+        Slow(f"\n{red}╔══════════════════════════════════════╗{Color.RESET}")        
         for m in modules:
-            print(f"{white}{m.module_number}. {m.__name__.split('.')[-1]}{red}")
+            Slow(f"║{white}{m.module_number}. {m.__name__.split('.')[-1]}{red}")
+        Slow(f"{red}╚══════════════════════════════════════╝{Color.RESET}\n")
         uchoice = input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter function ({choices} or 'q' to quit) -> {red}").strip().lower()
         cls()
         if uchoice == 'q':
