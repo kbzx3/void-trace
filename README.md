@@ -1,107 +1,139 @@
-# Void Trace
+Void Trace
 
-Void Trace is an advanced OSINT and reconnaissance tool built in Python. It is a continuation and evolution of the [DevilEye](https://github.com/kbzx3/devileye-osint-in-developement-will-receive-updates-) project, designed to provide a more user-friendly interface, additional features, and regular updates for tracking emails, phone numbers, and more.
+Void Trace is a modernized open-source intelligence (OSINT) and reconnaissance framework written in Python.
+It continues the evolution of the DevilEye project — redesigned for improved stability, modularity, and data depth.
 
----
-
-## Features
-
-- **Email Tracking** – Quickly gather information about emails and their associated accounts.
-- **Phone Lookup** – Parse and validate phone numbers using the `phonenumbers` library.
-- **Website Scraping** – Collect public information from websites with `BeautifulSoup`.
-- **Terminal Enhancements** – Colorful outputs with `colorama`, ASCII banners with `pyfiglet`, and colored text with `termcolor`.
-- **Cross-Platform** – Works on Windows, macOS, and Linux with Python 3.x.
-- New features will be added soon
 
 ---
 
-## Installation
+Features
 
-### 1. Clone the Repository
+Phone Lookup – Analyze and validate phone numbers with carrier, region, and type detection.
 
-```bash
+Web Intelligence – Extract public information and metadata from websites.
+
+Network Analysis – Perform connectivity and domain checks to reveal traceable network layers.
+
+
+
+Enhanced CLI Interface – Colored output, ASCII banners, and clean command feedback.
+
+Modular Design – Easily extendable for new OSINT sources and data types.
+
+
+
+---
+
+Installation
+
+1. Clone the Repository
+
 git clone https://github.com/kbzx3/void-trace.git
 cd void-trace
-```
 
-### 2. Create a Virtual Environment (Recommended)
+2. Create a Virtual Environment (Optional)
 
-```bash
 python3 -m venv venv
-# On Windows
+# Windows
 venv\Scripts\activate
-# On Linux/macOS
+# Linux/macOS
 source venv/bin/activate
-```
 
-### 3. Install Dependencies
+3. Install Dependencies
 
-```bash
 pip install -r requirements.txt
-```
+
 
 ---
 
-## Usage
+Usage
 
-Run the main script:
+Run the main script to launch the toolkit:
 
-```bash
 python main.py
-```
 
-The tool will display a terminal interface with options to perform email tracking, phone lookup, and other reconnaissance features.
+Void Trace will present a terminal-driven interface for lookups, traces, and data correlation.
+Supported inputs include phone numbers, URLs, and general identifiers depending on the module invoked.
 
----
-
-## Addon Development
-
-Please ensure the name of the main function is the same as the file, for example is the name of thefunction that runs the module is reversesearch then file must be named reversesearch.py .
-
-## Relation to DevilEye
-
-Void Trace is a **continuation of the DevilEye project**. It retains the core OSINT capabilities of DevilEye while adding:
-
-- Better terminal visuals
-- Phone number parsing functionality
-- Regular updates and bug fixes
-- Improved modular code structure
-
-This ensures users can continue leveraging the power of DevilEye with enhanced features and stability.
 
 ---
 
-## Updates
+Addon Development
 
-Void Trace will receive **regular updates** to include:
+Developers can expand Void Trace by creating standalone modules.
+Ensure each new module’s main function matches its filename — e.g. a function named reversesearch must reside in reversesearch.py.
 
-- New OSINT modules and tools
-- Bug fixes and performance improvements
-- Compatibility updates with Python versions
-- Security patches for safe usage
-
-Stay tuned by following the repository or checking the [Releases](https://github.com/kbzx3/void-trace/releases) section.
 
 ---
 
-## Contributing
+Relation to DevilEye
 
-Contributions are welcome! You can:
+Void Trace is the direct successor to DevilEye, built with modern libraries and extended capabilities.
+It retains the OSINT foundation but adds a more stable architecture, cleaner visuals, and greater data reach.
+
+Improvements include:
+
+Better terminal and user interaction
+
+Integrated parsing for phone and web data
+
+Modular scripting support
+
+Ongoing feature and performance updates
+
+
+
+---
+
+Updates
+
+Void Trace receives continuous updates introducing:
+
+New tracing modules and analysis tools
+
+Performance and accuracy improvements
+
+Broader data-source integration
+
+Regular security patches
+
+
+
+---
+
+Contributing
+
+Contributions are open to all.
+Steps:
 
 1. Fork the repository
-2. Create a new branch for your feature or fix
-3. Submit a pull request with your improvements
 
-Please ensure all code follows Python 3 conventions and maintains compatibility with the current modules.
+
+2. Create a branch for your feature or fix
+
+
+3. Submit a pull request
+
+
+
+Ensure your code follows Python 3 standards and maintains module compatibility.
+
 
 ---
 
-## License
+License
 
-Void Trace inherits its license from DevilEye and is **open source under the GPL 3.0 License**. You are free to use, modify, and distribute it responsibly.
+Void Trace is licensed under the GPL 3.0 License.
+You are free to use, modify, and redistribute responsibly.
+
 
 ---
 
-## Disclaimer
+Disclaimer
 
-This tool is intended for **educational and ethical purposes only**. Do not use Void Trace to invade privacy or perform illegal activities. The developers are **not responsible for misuse**.
+This project is built for educational and ethical OSINT research only.
+Unauthorized surveillance, intrusion, or misuse is strictly prohibited.
+Developers hold no responsibility for improper or illegal use.
+
+
+---
