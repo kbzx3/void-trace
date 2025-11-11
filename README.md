@@ -5,6 +5,8 @@ It continues the evolution of the DevilEye project — redesigned for improved s
 
 
 ---
+![Mainmenu](images/Mainmenu.png)
+---
 
 Features
 
@@ -20,10 +22,13 @@ Enhanced CLI Interface – Colored output, ASCII banners, and clean command feed
 
 Modular Design – Easily extendable for new OSINT sources and data types.
 
-
-
 ---
-
+![Decoder](images/decoding.png)
+---
+![Emailtracker](images/Emailtracker.png)
+---
+![Userlookup](images/userlookup.png)
+---
 Installation
 
 1. Clone the Repository
