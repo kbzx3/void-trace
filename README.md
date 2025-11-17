@@ -1,6 +1,7 @@
 Void Trace
 
-Void Trace is a modernized open-source intelligence (OSINT) and reconnaissance framework written in Python.
+Void Trace is a modernized open-source intelligence (OSINT) and reconnaissance
+tool (planned to be a framework in the future) written in Python.
 It continues the evolution of the DevilEye project — redesigned for improved stability, modularity, and data depth.
 
 
