@@ -105,7 +105,6 @@ async def main():
                 print(f"\n--- Session Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---")
                 logging_enabled = True
             asked_for_logging = True
-            cls()
         uchoice = input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter function ({choices} or 'q' to quit) -> {red}").strip().lower()
         if isinstance(sys.stdout, Logger):
             print(f"User Input: {uchoice}")
