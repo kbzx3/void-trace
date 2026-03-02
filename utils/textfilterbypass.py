@@ -5,7 +5,7 @@ class Color:
     RED = "\033[91m"
     WHITE = "\033[97m"
 
-
+module_display_name = "Message filter bypass"
 
 white = Color.WHITE
 red = Color.RED
@@ -59,10 +59,19 @@ def replacechar(text: str) -> str:
     return ''.join(char.get(ch, ch) for ch in text)
 
 def textfilterbypass():
-    msg= input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter message to bypass filters -> {red}")
+    msg= input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter message to encode with unicode bypass -> {red}")
     msglen=len(msg)
     msglen_=msglen+15
-    print(f"\n{red}╔{'═'*msglen_}╗{Color.RESET}")
-    print(f"║{BEFORE}{current_time_hour()}{AFTER} {ADD} Copy and paste it:║ {red}")
-    print(f"║{BEFORE}{current_time_hour()}{AFTER} {ADD} {replacechar(msg)}║")
-    print(f"{red}╚{'═'*msglen_}╝{Color.RESET}\n")
+    space= 35 - msglen_
+    space2 = msglen_-35
+    space3 = ' '*space2
+    if msglen_>=35:
+        print(f"\n{red}╔{'═'*msglen_}╗{Color.RESET}")
+        print(f"║{BEFORE}{current_time_hour()}{AFTER} {ADD} Copy and paste it:{space3}  ║ {red}")
+        print(f"║{BEFORE}{current_time_hour()}{AFTER} {ADD} {replacechar(msg)+' '*space}║")
+        print(f"{red}╚{'═'*msglen_}╝{Color.RESET}\n")
+    else: 
+        print(f"\n{red}╔{'═'*35}╗{Color.RESET}")
+        print(f"║{BEFORE}{current_time_hour()}{AFTER} {ADD} Copy and paste it:  ║ {red}")
+        print(f"║{BEFORE}{current_time_hour()}{AFTER} {ADD} {replacechar(msg)+' '*space}║")
+        print(f"{red}╚{'═'*35}╝{Color.RESET}\n")       

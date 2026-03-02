@@ -9,7 +9,7 @@ class Color:
 white = Color.WHITE
 red = Color.RED
 color = Color()
-
+module_display_name = "Addon Manager"
 BEFORE = "["
 AFTER = "]"
 ADD = "[+]"

@@ -9,7 +9,7 @@ class Color:
     WHITE = "\033[97m"
     GREEN = "\033[92m"
     YELLOW = "\033[93m"
-
+module_display_name = "String Deobfuscation"
 white = Color.WHITE
 red = Color.RED
 green = Color.GREEN

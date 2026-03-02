@@ -12,7 +12,7 @@ AFTER = "]"
 ADD = "[+]"
 INPUT = "[?]"
 WAIT = "[~]"
-
+module_display_name = "Username Lookup"
 def current_time_hour():
     return datetime.now().strftime("%H:%M:%S")
 
@@ -24,16 +24,16 @@ def Slow(text, delay=0.03):
 
 def generate_similar_usernames(username, limit=None):
     username = username.lower()
-    alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789-_'
+    alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789-_.'
     similar = set()
-
-    # Base tweaks
-    similar.update([
+    base_tweaks = [
         f"{username}2",
         f"{username}_"
-    ])
+    ]
     if len(username) > 2:
-        similar.add(f"{username[:2]}_{username[2:]}")
+        base_tweaks.append(f"{username[:2]}_{username[2:]}")
+    
+    similar.update(base_tweaks)
 
     # Character substitutions, insertions, deletions
     for i in range(len(username)):
@@ -46,9 +46,12 @@ def generate_similar_usernames(username, limit=None):
     for i in range(len(username)):
         similar.add(username[:i] + username[i+1:])
 
+    similar_list = list(similar)
+    result = base_tweaks + [u for u in similar_list if u not in base_tweaks]
+    
     if limit:
-        return list(similar)[:limit]
-    return list(similar)
+        return result[:limit]
+    return result
 
 
 async def check_site(session, site, url, found):
@@ -57,8 +60,8 @@ async def check_site(session, site, url, found):
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
     }
     try:
-        async with session.get(url, headers=headers, timeout=5) as resp:
-            if resp.status == 200:
+        async with session.get(url, headers=headers, timeout=5, allow_redirects=True) as resp:
+            if resp.status != 404 and resp.status < 400:
                 found.append((site, url))
                 print(f"{BEFORE}{current_time_hour()}{AFTER} {ADD} Username found on {site}: {white}{url}{red}")
             elif resp.status == 429:
@@ -72,7 +75,7 @@ async def check_platform_usernames(session, platform, username, limit=None):
         "GitHub": "https://github.com/{}",
         "Reddit": "https://www.reddit.com/user/{}",
         "Facebook": "https://www.facebook.com/{}",
-        "Twitter": "https://twitter.com/{}",
+        "Twitter": "https://x.com/{}",
         "Instagram": "https://www.instagram.com/{}/",
         "TikTok": "https://www.tiktok.com/@{}",
         "Pinterest": "https://www.pinterest.com/{}/",
@@ -83,29 +86,31 @@ async def check_platform_usernames(session, platform, username, limit=None):
         "Steam": "https://steamcommunity.com/id/{}",
         "Twitch": "https://www.twitch.tv/{}",
         "DeviantArt": "https://www.deviantart.com/{}",
-        "Flickr": "https://www.flickr.com/people/{}/"
+        "Archive": "https://archive.org/details/@{}",
+        "Chess.com": "https://www.chess.com/member/{}",
+        "Tumblr": "https://{}.tumblr.com",
+        "Telegram": "https://t.me/{}",
+        "Duolingo": "https://www.duolingo.com/profile/{}",
+        "SoundCloud": "https://soundcloud.com/{}",
+        "Ebay": "https://www.ebay.com/usr/{}"
     }
     found = []
 
-    if platform == "GitHub":
-        usernames = [username] + generate_similar_usernames(username, limit=10)
-    elif platform == "Facebook":
-        usernames = [username] + generate_similar_usernames(username, limit=20)
-    else:
-        usernames = [username] + generate_similar_usernames(username)
+
+    usernames = [username] + generate_similar_usernames(username,limit= 20)
 
     tasks = [check_site(session, platform, sites[platform].format(u), found) for u in usernames]
     await asyncio.gather(*tasks)
     return found
 
-# Main async username finder
 async def userlookup():
     Slow("=== Username Checker ===")
     username = input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter username -> {white}").strip()
     print(f"{BEFORE}{current_time_hour()}{AFTER} {WAIT} Checking username and similar ones per platform...{red}")
     print(f"{BEFORE}{current_time_hour()}{AFTER} {WAIT} Please wait this may take a while...{red}")
     platforms = ["GitHub", "Reddit", "Facebook", "Twitter", "Instagram", "TikTok",
-                 "Pinterest", "YouTube", "GitLab", "Bitbucket", "Medium", "Steam", "Twitch", "DeviantArt", "Flickr"]
+                 "Pinterest", "YouTube", "GitLab", "Bitbucket", "Medium", "Steam",
+                 "Twitch", "DeviantArt", "Archive","Chess.com","Tumblr","Telegram","Duolingo","SoundCloud","Ebay"]
     all_found = []
 
     async with aiohttp.ClientSession() as session:
@@ -115,7 +120,8 @@ async def userlookup():
 
     if all_found:
         print(f"\n{BEFORE}{current_time_hour()}{AFTER} {ADD} Found profiles:")
-        print(tabulate(all_found, headers=["Platform", "URL"], tablefmt="grid"))
+        for platform, url in all_found:
+            print(f"  {platform}: {url}")
     else:
         print(f"{BEFORE}{current_time_hour()}{AFTER} {ADD} No profiles found.")
 

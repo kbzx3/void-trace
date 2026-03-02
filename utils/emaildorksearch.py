@@ -5,7 +5,7 @@ from datetime import datetime
 import time
 import urllib.parse
 
-
+module_display_name = "Email Dorksearch"
 white = "\033[97m"
 red = "\033[91m"
 reset = "\033[0m"

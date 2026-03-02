@@ -16,7 +16,7 @@ class Color:
 white = Color.WHITE
 red = Color.RED
 color = Color()
-
+module_display_name = "IP Scanner"
 BEFORE = "["
 AFTER = "]"
 ADD = "[+]"

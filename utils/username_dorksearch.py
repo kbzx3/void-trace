@@ -5,7 +5,7 @@ from datetime import datetime
 import time
 import urllib.parse
 
-
+module_display_name = "Username Dorksearch"
 white = "\033[97m"
 red = "\033[91m"
 reset = "\033[0m"
@@ -64,9 +64,12 @@ def username_dorksearch():
             a = r.select_one("a")
         if a:
             title = a.get_text(strip=True)
+            title_ = title.lower()
             link = a.get("href")
             if link and title:
-                results.append((title, link))
+                if "dork" not in title_ and "dorks" not in title_:
+                    results.append((title, link))
+
 
     if not results:
         print(f"{BEFORE}{current_time_hour()}{AFTER} {red}No results found or site blocked the request.{reset}")

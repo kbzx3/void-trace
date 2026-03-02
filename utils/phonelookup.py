@@ -13,7 +13,7 @@ class Color:
 white = Color.WHITE
 red = Color.RED
 color = Color()
-
+module_display_name = "Phone Lookup"
 BEFORE = "["
 AFTER = "]"
 ADD = "[+]"
