@@ -17,6 +17,17 @@ white = Color.WHITE
 red = Color.RED
 color = Color()
 module_display_name = "IP Scanner"
+description = '''
+Description:
+A multi-threaded reconnaissance module using concurrent.futures to perform parallel TCP port scans. 
+It interfaces with the ipinfo.io API for geolocation/ISP data and utilizes the ssl module 
+to retrieve and inspect remote X.509 server certificates.
+
+Usage:
+1. Type the IP address you want to investigate.
+2. The tool will find the host country, provider (ISP), and DNS information.
+3. It will also list which common ports (like 80 or 443) are "Open".
+'''
 BEFORE = "["
 AFTER = "]"
 ADD = "[+]"

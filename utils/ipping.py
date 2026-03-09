@@ -12,6 +12,18 @@ white = Color.WHITE
 red = Color.RED
 color = Color()
 module_display_name = "IP Ping Tool"
+description = '''
+Description:
+A low-level network utility using the socket module to initiate AF_INET SOCK_STREAM connections. 
+It calculates TCP latency by measuring the time delta between the connection start and the 
+successful transmission of a specified byte payload.
+
+Usage:
+1. Enter the target IP address you want to test.
+2. Enter the Port number (press Enter for the default, Port 80).
+3. Enter the amount of Bytes to send (press Enter for 64 bytes).
+4. The tool will report the connection speed in "ms" (milliseconds).
+'''
 BEFORE = "["
 AFTER = "]"
 ADD = "[+]"

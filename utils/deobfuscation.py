@@ -10,6 +10,17 @@ class Color:
     GREEN = "\033[92m"
     YELLOW = "\033[93m"
 module_display_name = "String Deobfuscation"
+description = '''
+Description:
+A string-processing module implementing base64 decoding, hexadecimal byte-conversion, and 
+urllib.parse for percent-decoding. It also features a manual Caesar cipher 
+implementation for ROT13 and a slicing-based string reversal method.
+
+Usage:
+1. Select a method by typing a number from 1 to 5 (e.g., 1 for Base64).
+2. Paste the scrambled or encoded text when prompted.
+3. The tool will process the input and display the "Decoded" original message.
+'''
 white = Color.WHITE
 red = Color.RED
 green = Color.GREEN

@@ -13,6 +13,17 @@ ADD = "[+]"
 INPUT = "[?]"
 WAIT = "[~]"
 module_display_name = "Username Lookup"
+description = '''
+Description:
+An asynchronous OSINT scanner leveraging aiohttp to concurrently probe 21 social media 
+URL patterns. It utilizes a mutation algorithm to generate and test similar-looking 
+usernames to identify potential profile matches.
+
+Usage:
+1. Type the username you want to find.
+2. Wait as the tool checks dozens of sites (like Reddit, TikTok, and Steam) at once.
+3. It will list direct links to any profiles it finds registered with that name.
+'''
 def current_time_hour():
     return datetime.now().strftime("%H:%M:%S")
 

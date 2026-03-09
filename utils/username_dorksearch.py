@@ -6,6 +6,17 @@ import time
 import urllib.parse
 
 module_display_name = "Username Dorksearch"
+description = '''
+Description:
+A specialized scraper that uses "intext:" dorks on DuckDuckGo to find indexed mentions of 
+a username. It programmatically filters results containing the string "dork" 
+in the title to ensure high result relevancy.
+
+Usage:
+1. Type the username (no spaces) you want to search for.
+2. The tool scans the web for any page mentioning that specific name.
+3. Review the results table for links and website titles.
+'''
 white = "\033[97m"
 red = "\033[91m"
 reset = "\033[0m"

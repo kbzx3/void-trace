@@ -6,7 +6,17 @@ class Color:
     WHITE = "\033[97m"
 
 module_display_name = "Message filter bypass"
+description = '''
+Description:
+A character-mapping script that replaces standard ASCII Latin characters with visually 
+identical Unicode homoglyphs from the Cyrillic and Greek alphabets. This circumvents 
+automated string-matching filters by using different character codes.
 
+Usage:
+1. Type the message you want to send past a filter.
+2. The tool generates a version that looks normal but uses special characters.
+3. Copy the encoded text from the box and paste it where needed.
+'''
 white = Color.WHITE
 red = Color.RED
 

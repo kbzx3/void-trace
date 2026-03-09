@@ -15,7 +15,16 @@ AFTER = "]"
 ADD = "[+]"
 ERROR = "[!]"
 INPUT = "[?]"
-
+description = '''
+Description:
+A file-system utility that interfaces with the shutil and os modules to manage the utils/ directory. 
+It performs absolute path moves for adding new modules and unlinks files for removal, requiring a 
+program restart to re-initialize the dynamic import loop in main.py
+Usage:
+When prompted, type 'A' if you want to Add a new tool, or 'R if you want to Remove one.
+Type the full location (path) of the .py file on your computer.
+Important: You must close and restart the program to see your changes in the menu
+'''
 def current_time_hour():
     return datetime.now().strftime("%H:%M:%S")
 

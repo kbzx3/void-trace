@@ -6,6 +6,18 @@ import time
 import urllib.parse
 
 module_display_name = "Email Dorksearch"
+description = '''
+Description:
+An automated OSINT scraper that utilizes urllib.parse to craft "intext:" search queries. 
+It transmits these to the DuckDuckGo HTML endpoint via the requests library and parses the 
+returned DOM using BeautifulSoup to extract indexed hyperlinks.
+
+Usage:
+1. Enter the specific email address you want to find on the web.
+2. Wait for the tool to scan search engine results.
+3. View the table of website titles and links where the email was mentioned.
+4. Note: Do not use spaces in the email address.
+'''
 white = "\033[97m"
 red = "\033[91m"
 reset = "\033[0m"

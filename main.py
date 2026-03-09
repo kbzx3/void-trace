@@ -11,7 +11,10 @@ for file in os.listdir(folder):
 
 for index, module in enumerate(modules, start=1):
     module.module_number = index
-
+def printmodulenames():
+    for m in modules:
+        display_name = getattr(m, 'module_display_name', m.__name__.split('.')[-1])
+        print(f"{white}{m.module_number}. {display_name}{white}")
 modnum = len(modules)
 def cls():
     if os.name == "nt": os.system('cls')
@@ -60,7 +63,43 @@ def Slow(text, delay=0.01):
 
 def Error(message):
     print(f"{BEFORE}{current_time_hour()}{AFTER} {ERROR} {message}")
+miscinfo = '''
+Description:
+Void Trace is a modernized open-source intelligence (OSINT) and reconnaissance tool built in Python. 
+It serves as a modular framework for analyzing phone numbers, web metadata, and network layers 
+through a terminal-driven interface. The system uses a dynamic module loader in 
+main.py that automatically detects and imports utility scripts from the utils/ folder.
 
+How to Develop Addons:
+1. File Creation: Create a new .py file and place it specifically inside the 'utils' folder.
+2. Function Naming: You MUST define a main function inside your script that has the exact same 
+   name as the file itself (e.g., 'tools.py' must have 'def tools():').
+3. Parameters: The entry function must take zero arguments to be compatible with the 
+   automatic caller in main.py.
+4. Metadata: At the top of your script, include 'module_display_name' for the menu title 
+   and 'description' for the help text.
+
+Usage & FAQ:
+- Restart Required: After adding or removing a tool via the Addon Manager, you must restart 
+  the program to refresh the menu.
+- Navigation: Use the numbers 1-10 to select tools, 'h' for help info, and 'q' to quit.
+- Formatting: For phone tools, always use the '+' prefix with the country code.
+- Safety: If a tool shows [WAIT], do not interrupt the process as it is fetching live 
+  data from external APIs or websites.
+'''
+def help():
+    try:
+        printmodulenames()
+        helpmodnum_=input(f"{INPUT} Enter function number ({choices}) or 'm' for miscellaneous info: {white}")
+        if helpmodnum_ == 'm':
+            print(f"{ADD} {miscinfo}")
+        elif int(helpmodnum_) in range(10):
+            helpmodnum = int(helpmodnum_)
+            helpmodule = modules[helpmodnum-1]
+            helpinfo=getattr(helpmodule,"description", "No help info found")
+            print(f" {ADD} {helpinfo} {white}")
+        else: print(f"{red} {ERROR} Invalid input {red}")
+    except Exception as e: print(f"{ERROR} {e}")
 ascii_art = '''
  ██▒   █▓ ▒█████   ██  █████▄    ▄▄▄█████▓ ██▀███   ▄▄▄       ▄████▄  ▓█████ 
 ▓██░   █▒▒██▒  ██▒▓  ▒▒██▀ ██▌   ▓  ██▒ ▓▒▓██ ▒ ██▒▒████▄    ▒██▀ ▀█  ▓█   ▀ 
@@ -105,20 +144,24 @@ async def main():
                 print(f"\n--- Session Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---")
                 logging_enabled = True
             asked_for_logging = True
-        uchoice = input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter function ({choices} or 'q' to quit) -> {red}").strip().lower()
+        uchoice = input(f"{BEFORE}{current_time_hour()}{AFTER} {INPUT} Enter function ({choices}, 'h' for info/help or 'q' to quit) -> {red}").strip().lower()
         if isinstance(sys.stdout, Logger):
             print(f"User Input: {uchoice}")
         cls()
         if uchoice == 'q':
             print(f"{BEFORE}{current_time_hour()}{AFTER} {ADD} Exiting program.")
             break
+        elif uchoice == 'h':
+            help()
+            continue
         try:
             choice = int(uchoice)
         except ValueError:
-            Error(f"Invalid input. Please enter {choices} or 'q'.")
+            Error(f"Invalid input. Please enter {choices},h or 'q'.")
             continue
+        
         if choice not in range(1, modnum + 1):
-            Error(f"Invalid choice. Please enter {choices} or 'q'.")
+            Error(f"Invalid choice. Please enter {choices},h or 'q'.")
             continue
         selected_module = next((m for m in modules if m.module_number == choice), None)
         if not selected_module:

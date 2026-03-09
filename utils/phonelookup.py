@@ -14,6 +14,17 @@ white = Color.WHITE
 red = Color.RED
 color = Color()
 module_display_name = "Phone Lookup"
+description = '''
+Description:
+A metadata extraction engine built on the phonenumbers library. It parses E.164 
+formatted strings to query internal databases for carrier identification, geocoding 
+descriptions, and IANA timezone mappings.
+
+Usage:
+1. Enter the phone number you want to look up.
+2. Important: You MUST start with a '+' and include the country code (e.g., +1 or +91).
+3. The tool will display a table showing the carrier, region, and timezones.
+'''
 BEFORE = "["
 AFTER = "]"
 ADD = "[+]"
