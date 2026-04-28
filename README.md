@@ -5,7 +5,7 @@ tool written in Python.
 It continues the evolution of the DevilEye project — redesigned for improved stability, modularity, and data depth.
 ## Void trace has a simple philosophy: Automation should assist navigation, not replace human judgement.
 ## This tool is simply meant to gather data, the final confirmation of correlation should always be done by human eyes.
-## Human can spot information rigid code cannot.
+## Human eyes can spot information rigid code cannot.
 
 
 ---
